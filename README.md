@@ -1,6 +1,24 @@
-# BERT Sentiment Analysis on Smile Twitter Dataset
+## Sentiment Analysis on Smile Twitter Dataset
 
-This project focuses on training a BERT (Bidirectional Encoder Representations from Transformers) model for sentiment analysis using the Smile Twitter dataset. The BERT model is fine-tuned on the dataset to classify tweets into positive, negative, or neutral sentiment categories.
+This project focuses on utilizing a pretrained BERT (Bidirectional Encoder Representations from Transformers) model for sentiment analysis using the Smile Twitter dataset. The BERT model is fine-tuned on the dataset to classify tweets into positive, negative, or neutral sentiment categories.
+- Loading a pretrained BERT model is beneficial as it leverages transfer learning (providing a strong base of learned linguistic representations), especially when working with small datasets and under restricted computational power.
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. **Set up a Python Environment**: Install the required dependencies mentioned in `requirements.txt`.
+2. **Go through the train.py Script**: It provides a step-by-step recipe to execute the project.
+    - **Summarized Steps**:
+        1. **Data Preprocessing**: Load, clean and preprocess the data.
+        2. **Train-Test Split**: Split the preprocessed data into training and validation sets.
+        3. **Data Split Assignment**: Label the respective data splits in the DataFrame.
+        4. **Data Encoding**: Tokenize the data for the BERT model.
+        5. **TensorDatasets Creation**: Create PyTorch TensorDatasets for training and validation data.
+        6. **Model Loading**: Load a pretrained BERT model.
+        7. **DataLoaders Creation**: Create PyTorch DataLoaders for the training and validation datasets.
+        8. **Optimizer and Scheduler Setup**: Set up optimizer and scheduler for model training.
+        9. **Model Training**: Train the model using the training data.
+        10. **Model Evaluation**: Evaluate the performance of the model on the validation dataset.
 
 ## Project Structure
 
@@ -17,17 +35,10 @@ The Twitter SMILE dataset was downloaded from
 - **Config.py**: contains settings and parameters for the project.
 - **rqruirements.txt**
 
-- **README.md**: Provides an overview of the project, dataset details, potential use cases, and information about citing and licensing the dataset.
 
-## Getting Started
 
-To get started with this project, follow these steps:
 
-1. Set up a Python environment with the required dependencies mentioned in `requirements.txt`.
 
-2. Download Smile Twitter dataset (`smile_tweets.csv`) and place it in the `data` directory.
-
-3. Go through the training.py script. It is a step-by-step recipe to execute the project.
 
 
 
