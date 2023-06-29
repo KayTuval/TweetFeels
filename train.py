@@ -53,7 +53,7 @@ dataloader_train, dataloader_val = create_dataloaders(dataset_train, dataset_val
 # Set up the optimizer and scheduler
 optimizer, scheduler = setup_optimizer_scheduler(model, dataloader_train)
 
-# Create the "Models" directory if it doesn't exist
+# Create the "Models" directory if it doesn't exist (for saving model weights)
 os.makedirs("Models", exist_ok=True)
 
 # Setting random seeds allows reproducibility
@@ -61,14 +61,18 @@ random.seed(Config.random_state)
 np.random.seed(Config.random_state)
 torch.manual_seed(Config.random_state)
 torch.cuda.manual_seed_all(Config.random_state)
+
 # Train the model
+# It is recommended to use Google colab GPU in case you don't have GPU available.
 average_train_loss = train(model, dataloader_train, optimizer, scheduler)
 
+# Load the "last" model weights
+# (You may change the "last" to be any epoch as long that it is inside the Models directory).
 model.load_state_dict(
             torch.load('Models/BERT_ft_last.model',
             map_location=torch.device('cpu')))
 
+# Evaluate the model
 _, predictions, true_vals = evaluate(model, dataloader_val)
-
 accuracy_per_class(predictions, true_vals, label_dict)
 
